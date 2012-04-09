@@ -1,0 +1,17 @@
+diff --git a/scripts/coder_format/coder_format.inc b/scripts/coder_format/coder_format.inc
+index 9eab367..2dfaa08 100644
+--- a/scripts/coder_format/coder_format.inc
++++ b/scripts/coder_format/coder_format.inc
+@@ -685,6 +685,7 @@ function coder_format_string($code = '') {
+         case T_INCLUDE:
+         case T_INCLUDE_ONCE:
+         case T_VAR:
++        case T_THROW:
+           coder_add_space($result);
+           // Append a space.
+           $result .= trim($text) . ' ';
+@@ -1406,4 +1407,3 @@ function coder_postprocessor_if_curly_braces() {
+ /**
+  * @} End of "defgroup coder_postprocessor".
+  */
+-
