@@ -1,22 +1,15 @@
+This code is forked from Drupal's Coder module.
 
-Developer Module that assists with code review and version upgrade that
-supports a plug-in extensible hook system so contributed modules can
-define additional review standards.
+SEE ALSO:
+README_coder.txt, which is the README file for the upstream Coder
+module.
 
-Built-in support for:
- - Drupal Coding Standards - http://drupal.org/node/318
- - Handle text in a secure fashion - http://drupal.org/node/28984
- - Converting 4.6.x modules to 4.7.x - http://drupal.org/node/22218
- - Converting 4.7.x modules to 5.x - http://drupal.org/node/64279
+BACKGROUND:
+There are some issues with Coder module that make it hard to use
+out-of-the-box for CiviCRM development.  Patches have been submitted
+to Coder module, and the plan is that when those patches are committed,
+this fork will become obsolte.
 
-Installation
-------------
-
-Copy coder.module to your module directory and then enable on the admin
-modules page.  Enable the modules that admin/config/development/coder/settings
-works on, then view the coder results page at coder.
-
-Author
-------
-Doug Green
-douggreen@douggreenconsulting.com
+However, in the interest of providing a ready-to-go Coder module for
+CiviCRM developers, I'm maintaining this fork with those patches
+already applied.
