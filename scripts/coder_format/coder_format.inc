@@ -638,7 +638,7 @@ function coder_format_string($code = '') {
 
         case T_CONST:
           // Constants are written uppercase.
-          $result = rtrim($result) . strtoupper(trim($text));
+          $result = rtrim($result) . "\n  " . strtoupper(rtrim($text)) . ' ';
           break;
 
         case T_ENCAPSED_AND_WHITESPACE:
@@ -685,6 +685,7 @@ function coder_format_string($code = '') {
         case T_INCLUDE:
         case T_INCLUDE_ONCE:
         case T_VAR:
+        case T_THROW:
           coder_add_space($result);
           // Append a space.
           $result .= trim($text) . ' ';
@@ -1406,4 +1407,3 @@ function coder_postprocessor_if_curly_braces() {
 /**
  * @} End of "defgroup coder_postprocessor".
  */
-
