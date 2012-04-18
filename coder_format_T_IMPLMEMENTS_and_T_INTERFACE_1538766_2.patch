@@ -1,0 +1,20 @@
+diff --git a/scripts/coder_format/coder_format.inc b/scripts/coder_format/coder_format.inc
+index 9eab367..825271a 100644
+--- a/scripts/coder_format/coder_format.inc
++++ b/scripts/coder_format/coder_format.inc
+@@ -787,6 +787,7 @@ function coder_format_string($code = '') {
+           $in_function_declaration = TRUE;
+           // Fall through.
+         case T_CLASS:
++        case T_INTERFACE:
+           // Write function and class to new lines.
+           $result = rtrim($result);
+           if (substr($result, -1) == '}') {
+@@ -806,6 +807,7 @@ function coder_format_string($code = '') {
+ 
+         case T_EXTENDS:
+         case T_INSTANCEOF:
++        case T_IMPLEMENTS:
+           // Add space before and after 'extends' and 'instanceof'.
+           $result = rtrim($result);
+           $result .= ' ' . trim($text) . ' ';

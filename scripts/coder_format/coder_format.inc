@@ -788,6 +788,7 @@ function coder_format_string($code = '') {
           $in_function_declaration = TRUE;
           // Fall through.
         case T_CLASS:
+        case T_INTERFACE:
           // Write function and class to new lines.
           $result = rtrim($result);
           if (substr($result, -1) == '}') {
@@ -807,6 +808,7 @@ function coder_format_string($code = '') {
 
         case T_EXTENDS:
         case T_INSTANCEOF:
+        case T_IMPLEMENTS:
           // Add space before and after 'extends' and 'instanceof'.
           $result = rtrim($result);
           $result .= ' ' . trim($text) . ' ';

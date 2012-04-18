@@ -2,6 +2,9 @@
 
 // Run coder_format.php against this file to see if known issues are resolved.
 
+interface Bar {
+}
+
 class Foo
   implements Bar {
 
