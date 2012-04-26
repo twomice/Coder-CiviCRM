@@ -1406,6 +1406,31 @@ function coder_postprocessor_if_curly_braces() {
   );
 }
 
+function coder_postprocessor_linebreak_on_first_multiline_array_element() {
+  return array(
+    // @bug common.inc, comment.module:
+    // Not yet working properly 25/03/2007 sun.
+    '#title' => 'Break array elements into separate lines, indented one level.',
+    '#search' => '/^([\040\t]*)(.*?\barray\()(.+)/m',
+    '#replace_callback' => 'coder_replace_linebreak_on_first_multiline_array_element',
+  );
+}
+
+function coder_replace_linebreak_on_first_multiline_array_element($matches) {
+  $last_character = substr(rtrim($matches[3], ' ;'), -1, 1);
+  if ($last_character == ')') {
+    // If the last character (not counting an optional semicolon) is a
+    // closing parenthesis, assume it's a single-line array and don't
+    // insert a linebreak. This isn't a foolproof assumption and could
+    // be improved.
+    return $matches[0];
+  }
+  else {
+    // Otherwise, insert a linebreak and indent two spaces.
+    return $matches[1] . $matches[2] . "\n" . $matches[1] . '  ' . $matches[3];
+  }
+}
+
 /**
  * @} End of "defgroup coder_postprocessor".
  */

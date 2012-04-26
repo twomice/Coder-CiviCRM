@@ -11,9 +11,12 @@ class Foo
   protected $protected = 'foobar';
 
   function baz() {
-    $a = 'a';
-  }
-
+    $a = array(1,               2,               3,               4,5);
+    $b = array(1,
+               2,
+               3);
+  } 
+  
   static function bot() {
     $b = 'b';
   }
